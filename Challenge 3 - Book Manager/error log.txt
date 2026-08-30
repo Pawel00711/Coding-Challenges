@@ -1,0 +1,46 @@
+/*
+ERROR LOG 
+During the deployment execution and testing phase of Challenge 3 Book Manager 
+the following technical conflicts were analyzed and successfully resolved
+
+1 INPUT BUFFER STREAM OVERFLOW
+- Symptom The program skipped string input fields entirely when choosing option 1 
+jumping straight to the publishing year input prompt
+
+- Cause Standard input operations leave a newline token inside the communication stream 
+Subsequent text line requests instantly consume this dangling character as an empty 
+submission breaking execution flow
+
+- Correction Implemented the standard whitespace filter operator std ws inside the 
+getline sequence which purges the communication channel before gathering text blocks
+
+2 DATA SORTING STREAM CORRUPTION
+- Symptom Typing alphabetical string data into numerical option selectors 
+caused the interface loop to crash and spin endlessly
+
+- Cause Text input corrupts numerical variables causing the cin stream to set a 
+fail state flag Once tripped the channel refuses to receive new inputs resulting 
+in infinite processing loops
+
+- Correction Added an input stream reset evaluation using cin clear to reset operational 
+flags combined with cin ignore to drop conflicting elements from the buffer array
+
+3 INVALID BUFFER PASTE AND COMPILER CRASH
+- Symptom Compilation aborted with a begin and end was not declared in this scope diagnostics cascade
+
+- Cause An absolute path string from a clipboard buffer was accidentally pasted inside the 
+struct definition block breaking the compiler syntax tree and preventing standard vector iteration
+
+- Correction Removed the corrupt path string fragment and restored the clean struct template layout 
+which resolved the compiler parsing boundaries successfully
+
+4 PATH SEPARATOR INTERPRETATION FAILURE
+- Symptom Terminal operations returned a standard system cannot find the path specified error 
+when moving directories
+
+- Cause Raw command entry structures omitted required grouping parameters around folder designations 
+containing empty space elements causing the console shell to misparse directory destinations
+
+- Correction Implemented rigorous syntax boundary markers using double quotes around structural titles 
+restoring functional path resolution inside the execution environment
+*/

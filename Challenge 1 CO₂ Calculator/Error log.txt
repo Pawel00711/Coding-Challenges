@@ -1,0 +1,51 @@
+
+ERROR LOG 
+
+
+During the execution and compilation phase of this program, the following 
+technical conflicts were detected and resolved:
+
+1. PATH RESOLUTION CONFLICT
+- Symptom: Execution failed with a "fatal: path not found" message and a 
+"g++: error" notice upon launching the program.
+
+- Cause: The directory path contained blank spaces and a special character 
+("Challenge: 1 CO2 Calculator"). The command-line interface misparsed 
+the spaces as separate command syntax elements.
+
+- Correction: The project folder name was altered to a unified structure 
+without spaces ("Challenge-1"), which restored correct path resolution.
+
+2. MISSING FILE EXTENSION ERROR
+- Symptom: The system returned a linker error stating 
+"file format not recognized" and "collect2.exe: error".
+
+- Cause: The source file was created under the generic name "Calculator" 
+without the necessary ".cpp" file extension. The compiler toolchain 
+could not automatically identify the programming language type.
+
+- Correction: The file was renamed directly to "Calculator.cpp", enabling 
+the compiler to process the C++ source code normally.
+
+3. DATA TYPE NARROWING WARNING
+- Symptom: Compilation completed, but a diagnostics warning was flagged: 
+"conversion from 'int' to 'char' may change value".
+
+- Cause: The standard library function "toupper()" returns an integer value 
+(int) by design. Assigning this result directly to a character variable 
+(char) generated an implicit data conversion warning.
+
+- Correction: An explicit type cast constraint ("static_cast<char>") was 
+applied to the line, matching the data types and suppressing the warning.
+
+4. PERMISSION DENIED (FILE LOCK) ERROR
+- Symptom: Compilation aborted with a "cannot open output file Calculator.exe: Permission denied" 
+and "collect2.exe: error: ld returned 1 exit status" message.
+
+- Cause: The previously compiled binary artifact ("Calculator.exe") remained active as a zombie 
+process within the Windows OS memory layer. The operating system locked the file handle, 
+preventing the compiler from deleting or overwriting it with the updated source definitions.
+
+- Correction: The running task was terminated by forcing a process clear via the terminal 
+shell engine (killing the execution window or using a targeted build destination sequence), 
+which liberated the locked storage block and permitted successful compilation.

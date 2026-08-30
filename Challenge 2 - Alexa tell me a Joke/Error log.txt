@@ -1,0 +1,50 @@
+ERROR LOG 
+
+During the deployment execution and testing phase of Challenge 2 Alexa Joke App 
+the following technical conflicts were analyzed and successfully resolved:
+
+1 SYNTAX PREPROCESSOR DIRECTIVE OMISSION
+- Symptom The compilation process failed immediately cascading multiple errors 
+such as include is not a template and identifier iostream is undefined.
+
+- Cause The essential preprocessor hash character was omitted prior to the 
+include token on the opening line of the source document The syntax parser 
+mistook the statement for an invalid template instantiation expression.
+
+- Correction The hash character was restored to the head of the statement 
+enabling correct preprocessor macro expansion and standard library resolution.
+
+2 COMPILER PATH SEGMENTATION ERROR
+- Symptom The system environment returned a fatal diagnostic error stating 
+cc1plus exe fatal error Joke cpp No such file or directory.
+
+- Cause The absolute directory path contained multiple empty string spaces 
+Challenge 2 Alexa tell me a Joke The default command line runner 
+misinterpreted the space after me a as a syntax separator causing the 
+compiler toolchain to search for a non existent file named Joke cpp.
+
+- Correction Automated execution extensions were bypassed in favor of a manual 
+Command Line Interface CLI deployment Quotes were introduced around the 
+source target name preserving path boundaries.
+
+3 WORKSPACE TARGET DIRECTORY MISALIGNMENT
+- Symptom Execution commands consistently failed with a standard 
+No such file or directory termination warning.
+
+- Cause The active directory focus within the terminal instance remained locked 
+inside the previous project directory Challenge 1 CO2 Calculator causing 
+the compiler to search for Challenge 2 files inside the wrong workspace layer.
+
+- Correction The directory focus was shifted via explicit path routing 
+aligning the compiler with the true physical location of the files.
+
+4 RESOURCE NAME RESOLUTION CONFLICT
+- Symptom The binary artifact compiled successfully but generated a runtime 
+file stream crash Error Could not open randomJokes txt.
+
+- Cause A mismatch existed between the hardcoded reference string inside the 
+file streaming core randomJokes txt and the literal file identifier 
+allocated on the local operating system Jokes txt.
+
+- Correction The external data asset was renamed to match the exact string requirements 
+of the stream configuration randomJokes txt resolving read permissions.
